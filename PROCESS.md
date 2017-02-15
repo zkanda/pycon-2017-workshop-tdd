@@ -14,3 +14,14 @@ Setup Django
 Write story for your functional test.
 They should be human readable.
 
+Let's run and see a failure.
+
+The Python Standard Library’s unittest Module
+
+Let's format our code to use the unittest.TestCase class.
+
+Explain the module a bit. Like setup and tearDown
+
+We rerun and see a more useful information.
+
+Commit!

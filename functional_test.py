@@ -1,40 +1,52 @@
 from selenium import webdriver
+import unittest
 
-browser = webdriver.Firefox()
-browser.get('http://localhost:8000')
 
-# JayR went to the website, he notice the title as "Surveyor".
-assert 'Surveyor' in browser.title
+class NewVisitorTest(unittest.TestCase):
 
-# He saw a button that invites him to send an SMS and clicked the button
+    def setUp(self):
+        self.browser = webdriver.Firefox()
 
-# On the next page, there's header that says:
-# Fill this information to send an SMS
+    def tearDown(self):
+        self.browser.quit()
 
-# He notice that there are 2 fields and a button.
-# The first field is for adding contact information.
-# The second field is for adding the message.
-# Lastly a button to submit the form.
+    def test_can_view_the_page(self):
 
-# So he add his contact number on the first field. 09152087801
-# And added message on the second.
-# What is your Full Name?
+        # JayR went to the website, he notice the title as "Surveyor".
+        self.browser.get('http://localhost:8000')
+        self.assertIn('Surveyor', self.browser.title)
 
-# Lastly he clicked the submit button!
+        # He saw a button that invites him to send an SMS and clicked the button
 
-# After clicking the button he is immediately redirected to the home page.
-# With a notification that says, "Message sent, please wait for reply!"
+        # On the next page, there's header that says:
+        # Fill this information to send an SMS
 
-# He still didn't see any reply.
+        # He notice that there are 2 fields and a button.
+        # The first field is for adding contact information.
+        # The second field is for adding the message.
+        # Lastly a button to submit the form.
 
-# He got a notification from his phone, check and recieve the message
-# that he sent earlier. He immediately replied:
-# Elpedio Adoptante
+        # So he add his contact number on the first field. 09152087801
+        # And added message on the second.
+        # What is your Full Name?
 
-# He tries to refresh the page and saw the message like this.
-# Number        Name
-# 09152087801   JayR
+        # Lastly he clicked the submit button!
 
-# He is now happy and closes the browser.
-browser.quit()
+        # After clicking the button he is immediately redirected to the home page.
+        # With a notification that says, "Message sent, please wait for reply!"
 
+        # He still didn't see any reply.
+
+        # He got a notification from his phone, check and recieve the message
+        # that he sent earlier. He immediately replied:
+        # Elpedio Adoptante
+
+        # He tries to refresh the page and saw the message like this.
+        # Number        Name
+        # 09152087801   JayR
+
+        # He is now happy and closes the browser.
+
+
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')
