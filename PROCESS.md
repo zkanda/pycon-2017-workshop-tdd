@@ -69,3 +69,14 @@ What do we want to test now?
 * Can we make this view function return some HTML which will get the functional test to pass?
 
 Let's now edit our tests.py file to reflect what we want to test.
+
+So our test is telling us we cannot resolve the url.
+
+Here we now add a route using urls.py
+
+We should now be getting an error telling us that the view should be callable.
+
+Alright, let's make the view callable.
+
+Run the test! 
+Yohoo! Our first unit test that is passing.
