@@ -24,4 +24,12 @@ Explain the module a bit. Like setup and tearDown
 
 We rerun and see a more useful information.
 
+### Useful TDD Concepts
+
+User Story
+A description of how the application will work from the point of view of the user. Used to structure a functional test.
+
+Expected failure
+When a test fails in the way that we expected it to.
+
 Commit!
