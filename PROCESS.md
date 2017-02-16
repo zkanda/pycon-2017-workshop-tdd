@@ -58,3 +58,14 @@ Use tests.py from engagement and create a failing test.
 Then let's use django test runner to run the test.
 
 ./manage.py test
+
+Maybe Let's now talk about Django's Structure. MVC if the audience is not familiar.
+
+Explain we will now need to use django internal helper for testing.
+
+What do we want to test now?
+
+* Can we resolve the URL for the root of the site (“/”) to a particular view function we’ve made?
+* Can we make this view function return some HTML which will get the functional test to pass?
+
+Let's now edit our tests.py file to reflect what we want to test.
