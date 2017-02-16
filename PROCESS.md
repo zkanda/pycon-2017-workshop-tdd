@@ -33,3 +33,28 @@ Expected failure
 When a test fails in the way that we expected it to.
 
 Commit!
+
+3. Home page, first Unit Test and our first Django app.
+
+Let's create an app called engagement.
+
+It's not time we differentiate Functional Test and Unit Test.
+
+Steps in doing TDD:
+* Write functional test with user stories
+* Run and let it fail.
+* Think how to make it pass
+* Write one or more unittest to define the behavior
+* Write application code
+* Make the unit test pass.
+* Rerun functional test.
+* Repeat.
+
+Let's try it!
+
+Sanity check:
+Use tests.py from engagement and create a failing test.
+
+Then let's use django test runner to run the test.
+
+./manage.py test
