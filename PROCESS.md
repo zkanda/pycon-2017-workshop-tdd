@@ -80,3 +80,13 @@ Alright, let's make the view callable.
 
 Run the test! 
 Yohoo! Our first unit test that is passing.
+
+
+## Unit testing a view
+Write the code for testing the index view
+
+Run the test.
+
+Then go through each code cyle with minimal changes at a time.
+
+When the code pass, let's rerun functional test.
