@@ -102,3 +102,32 @@ selenium.common.exceptions.NoSuchElementException: Message: Unable to locate ele
 ```
 
 What does that tell us? Explain.
+
+
+The “Don’t Test Constants” Rule, and Templates to the Rescue
+
+It's now refactoring time.
+Move html to templates dir.
+
+Run unit test, it should be failing(TemplateDoesNotExist).
+
+Explain the traceback.
+
+Add app to settings INSTALLED_APPS.
+
+Rerun the test and fix the remaining issues.
+
+Now let's try the Django test client.
+We will now use assertion built into django itself.
+assertTemplateUsed
+
+Let's try to deliberately fail it.
+
+We can now refactor the name to 'test_uses_index_template'
+Remove the test_root_url_resolves test as well because django 
+test client is already implicity tesing.
+
+Don't get tempted in tweaking a lot of things at the same time.
+When refactoring, work on either the code or the tests, but not both at once.
+Show refactoring cat.
+http://bit.ly/1iXyRt4
