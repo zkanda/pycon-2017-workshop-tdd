@@ -90,3 +90,15 @@ Run the test.
 Then go through each code cyle with minimal changes at a time.
 
 When the code pass, let's rerun functional test.
+
+
+4. What Are We Doing with All These Tests? (And, Refactoring)
+
+Let's now write selenium test for the stories.
+Rerun the test and you get an error like this:
+
+```
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: header
+```
+
+What does that tell us? Explain.
