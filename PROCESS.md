@@ -134,3 +134,6 @@ http://bit.ly/1iXyRt4
 
 Run Functional Test(Failing)
 Let's code some html, currently it's looking for header.
+
+
+Now we are coding for the next page with url "/send_sms/"

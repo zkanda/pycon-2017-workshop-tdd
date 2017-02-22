@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from engagement.views import index
+from engagement.views import index, send_sms
 
 urlpatterns = [
-    url(r'^$', index, name='index')
+    url(r'^$', index, name='index'),
+    url(r'^send_sms/$', send_sms, name='send_sms')
 ]

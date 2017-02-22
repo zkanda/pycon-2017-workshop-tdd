@@ -28,6 +28,7 @@ class NewVisitorTest(unittest.TestCase):
         )
 
         send_sms_page_button.click()
+        time.sleep(1)
         send_sms_page = self.browser.current_url
         self.assertEqual(send_sms_page, "http://localhost:8000/send_sms/")
 

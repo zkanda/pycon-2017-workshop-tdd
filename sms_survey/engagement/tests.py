@@ -14,3 +14,11 @@ class HomePageTest(TestCase):
         self.assertTrue(html.strip().endswith('</html>'))
 
         self.assertTemplateUsed(response, 'index.html')
+
+
+class SendSMSPageTest(TestCase):
+
+    def test_sms_page_return_correct_html(self):
+        response = self.client.get("/send_sms/")
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'send_sms.html')
