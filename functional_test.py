@@ -23,11 +23,14 @@ class NewVisitorTest(unittest.TestCase):
         # He saw a button that invites him to send an SMS and clicked the button
         send_sms_page_button = self.browser.find_element_by_id('id_send_sms_page')
         self.assertEqual(
-            send_sms_button.get_attribute('value'),
+            send_sms_page_button.text,
             "Want to send SMS, click here!"
         )
 
-        send_sms_button.click()
+        send_sms_page_button.click()
+        send_sms_page = self.browser.current_url
+        self.assertEqual(send_sms_page, "http://localhost:8000/send_sms/")
+
 
         # On the next page, there's header that says:
         # Fill this information to send an SMS

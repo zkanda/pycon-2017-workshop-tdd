@@ -131,3 +131,6 @@ Don't get tempted in tweaking a lot of things at the same time.
 When refactoring, work on either the code or the tests, but not both at once.
 Show refactoring cat.
 http://bit.ly/1iXyRt4
+
+Run Functional Test(Failing)
+Let's code some html, currently it's looking for header.
