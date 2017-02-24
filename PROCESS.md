@@ -153,5 +153,8 @@ Now we create a database called Messages
 
 Then create a unit test to create that model
 
+Then our view can now accept request with csrf_exempt
 
+
+Then we show the data in browser using table.
 

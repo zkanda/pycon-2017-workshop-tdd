@@ -98,11 +98,10 @@ class NewVisitorTest(unittest.TestCase):
         # 09152087801   Elpedio Adoptante
         self.browser.refresh()
         table_replies = self.browser.find_element_by_id("id_table_replies")
-        rows = table_replies.find_element_by_tag_name("tr")
+        rows = table_replies.find_elements_by_tag_name("tr")
         self.assertTrue(
-            any(row.text == "09152087801   JayR" for row in rows)
+            any("0945983495439" in row.text for row in rows)
         )
-
 
         # He is now happy and closes the browser.
     

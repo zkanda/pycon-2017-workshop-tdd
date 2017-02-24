@@ -16,6 +16,17 @@ class HomePageTest(TestCase):
         self.assertTrue(html.strip().endswith('</html>'))
 
         self.assertTemplateUsed(response, 'index.html')
+    
+
+    def test_should_return_content_data(self):
+        Messages.objects.create(
+            id=1,
+            mobile_number="9847543895",
+            message="This is a message",
+        )
+        response = self.client.get("/")
+        html = response.content.decode('utf8')
+        self.assertIn("This is a message", html)
 
 
 class SendSMSPageTest(TestCase):
@@ -71,4 +82,12 @@ class ChikkaReceiverTest(TestCase):
         })
         self.assertEqual(response.status_code, 200)
 
-
+    def test_it_should_save_to_database(self):
+        # it should save to database
+        self.client.post("/chikka_receiver/", data={
+            "mobile_number": "0945983495439",
+            "message": "Elpedio Adoptante"
+        })
+        m = Messages.objects.all()
+        self.assertTrue(len(m) > 0)
+        self.assertEqual(m[0].mobile_number, '0945983495439')

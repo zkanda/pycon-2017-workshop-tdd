@@ -5,7 +5,13 @@
         <a href="/send_sms/" id="id_send_sms_page">Want to send SMS, click here!</a>
 
         <table id="id_table_replies">
-            <tr></tr>
+        <tr></tr>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.mobile_number }}</td>
+                <td>{{ message.message }}</td>
+            </tr>
+        {% endfor %}
         </table>
 
     </body>
