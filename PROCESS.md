@@ -137,3 +137,8 @@ Let's code some html, currently it's looking for header.
 
 
 Now we are coding for the next page with url "/send_sms/"
+
+Now we are done with coding the send_sms page with form.
+
+Let's go to the view function for send_sms, it's time for unit test.
+

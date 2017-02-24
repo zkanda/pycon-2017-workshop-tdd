@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Send SMS</title>
+</head>
+<body>
+<header>Fill this information to send an SMS</header>
+
+<form method="POST">
+	{% csrf_token %}
+	<input type="text" id="id_contact" name="contact" placeholder="Enter phone number" />
+	<textarea id="id_message" name="message" placeholder="Enter your message"></textarea>
+	<button type="submit" id="id_send_sms">Send SMS</button>
+</form>
+</body>
+</html>

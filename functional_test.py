@@ -57,10 +57,9 @@ class NewVisitorTest(unittest.TestCase):
         # Lastly a button to submit the form.
         send_sms_button = self.browser.find_element_by_id('id_send_sms')
         self.assertEqual(
-            send_sms_button.get_attribute('value'),
+            send_sms_button.text,
             "Send SMS"
         )
-
 
         # So he add his contact number on the first field. 09152087801
         input_contact.send_keys("09152087801")
@@ -76,6 +75,8 @@ class NewVisitorTest(unittest.TestCase):
         # After clicking the button he is immediately redirected to the home page.
         # With a notification that says, "Message sent, please wait for reply!"
         message_notification = self.browser.find_element_by_css_selector('.messages li:first-child').text()
+
+        self.assertEqual(self.browser.current_url, "http://localhost:8000/")
 
         # He still didn't see any reply.
         table_replies = self.browser.find_element_by_id("id_table_replies")
