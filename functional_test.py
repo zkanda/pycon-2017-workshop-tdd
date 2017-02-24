@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import unittest
+from unittest.mock import patch
 
 
 class NewVisitorTest(unittest.TestCase):
@@ -74,7 +75,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # After clicking the button he is immediately redirected to the home page.
         # With a notification that says, "Message sent, please wait for reply!"
-        message_notification = self.browser.find_element_by_css_selector('.messages li:first-child').text()
+        # message_notification = self.browser.find_element_by_css_selector('.messages li:first-child').text()
 
         self.assertEqual(self.browser.current_url, "http://localhost:8000/")
 

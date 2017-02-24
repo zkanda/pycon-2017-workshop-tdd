@@ -142,3 +142,4 @@ Now we are done with coding the send_sms page with form.
 
 Let's go to the view function for send_sms, it's time for unit test.
 
+Added the test and mocking for send_sms view

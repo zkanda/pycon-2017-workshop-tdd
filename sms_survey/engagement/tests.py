@@ -1,3 +1,4 @@
+from unittest.mock import patch
 from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
@@ -22,3 +23,20 @@ class SendSMSPageTest(TestCase):
         response = self.client.get("/send_sms/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'send_sms.html')
+
+    @patch('requests.post')
+    def test_when_send_an_sms_redirect_to_homepage(self, mock_post):
+        # Redirect to home page
+        response = self.client.post("/send_sms/", {"contact": "093487392", "message": "What is your name?"})
+
+        self.assertEqual(response.status_code, 302)
+
+    @patch('requests.post')
+    def test_chikka_api_is_called(self, mock_post):
+        # chikka api is being called
+        
+        # post
+        response = self.client.post("/send_sms/", {"contact": "093487392", "message": "What is your name?"})
+
+        # send chikka
+        mock_post.assert_called()
