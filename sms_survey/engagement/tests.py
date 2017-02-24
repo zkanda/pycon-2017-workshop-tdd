@@ -3,6 +3,7 @@ from django.core.urlresolvers import resolve
 from django.test import TestCase
 from django.http import HttpRequest
 from .views import index
+from .models import Messages
 
 
 class HomePageTest(TestCase):
@@ -40,3 +41,34 @@ class SendSMSPageTest(TestCase):
 
         # send chikka
         mock_post.assert_called()
+
+class MessageModelTest(TestCase):
+    
+    def setUp(self):
+        Messages.objects.create(
+            id=1,
+            mobile_number="9847543895",
+            message="This is a message",
+        )
+
+    def test_can_save_data(self):
+        # We can save data
+        m = Messages.objects.all()
+        self.assertTrue(len(m) > 0)
+
+    def test_can_retreive_data(self):
+        # Retreive data
+        m = Messages.objects.get(pk=1)
+        self.assertEqual(m.mobile_number, "9847543895")
+
+class ChikkaReceiverTest(TestCase):
+
+    def test_should_return_200(self):
+        # it should return 200
+        response = self.client.post("/chikka_receiver/", data={
+            "mobile_number": "0945983495439",
+            "message": "Elpedio Adoptante"
+        })
+        self.assertEqual(response.status_code, 200)
+
+

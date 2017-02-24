@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from engagement.views import index, send_sms, chikka_proxy
+from engagement.views import index, send_sms, chikka_proxy, chikka_receiver
 
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^send_sms/$', send_sms, name='send_sms'),
+    url(r'^chikka_receiver/$', chikka_receiver, name='chikka_receiver'),
     
 
     # This is only need for testing locally

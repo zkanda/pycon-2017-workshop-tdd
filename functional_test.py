@@ -81,7 +81,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # He still didn't see any reply.
         table_replies = self.browser.find_element_by_id("id_table_replies")
-        rows = table_replies.find_element_by_tag_name("tr")
+        rows = table_replies.find_elements_by_tag_name("tr")
         self.assertTrue(
             any(row.text == "" for row in rows)
         )
@@ -89,10 +89,13 @@ class NewVisitorTest(unittest.TestCase):
         # He got a notification from his phone, check and recieve the message
         # that he sent earlier. He immediately replied:
         # Elpedio Adoptante
+        self.assertEqual(self.reply_from_chikka().status_code, 200)
+
+        time.sleep(2)
 
         # He tries to refresh the page and saw the message like this.
         # Number        Name
-        # 09152087801   JayR
+        # 09152087801   Elpedio Adoptante
         self.browser.refresh()
         table_replies = self.browser.find_element_by_id("id_table_replies")
         rows = table_replies.find_element_by_tag_name("tr")
@@ -102,6 +105,15 @@ class NewVisitorTest(unittest.TestCase):
 
 
         # He is now happy and closes the browser.
+    
+
+    def reply_from_chikka(self):
+        import requests
+        return requests.post("http://localhost:8000/chikka_receiver/", data={
+            "mobile_number": "0945983495439",
+            "message": "Elpedio Adoptante"
+        })
+
 
 
 if __name__ == '__main__':

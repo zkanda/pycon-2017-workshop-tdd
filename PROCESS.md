@@ -143,3 +143,15 @@ Now we are done with coding the send_sms page with form.
 Let's go to the view function for send_sms, it's time for unit test.
 
 Added the test and mocking for send_sms view
+
+
+5 Saving user input
+
+Lets create the table where the data would be viewed.
+
+Now we create a database called Messages
+
+Then create a unit test to create that model
+
+
+

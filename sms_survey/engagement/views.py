@@ -1,5 +1,6 @@
 import requests
 from django.shortcuts import render, redirect
+# from .models import Messages
 
 # Create your views here.
 def  index(request):
@@ -15,6 +16,11 @@ def send_sms(request):
         requests.post("http://www.chikka.com:8000/api/send_sms/", data=data)
         return redirect("/")
     return render(request, 'send_sms.html')
+
+
+def chikka_receiver(request):
+    from django.http import HttpResponse
+    return HttpResponse({"message": "Success"})
 
 
 def chikka_proxy(request):
