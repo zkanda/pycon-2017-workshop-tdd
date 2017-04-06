@@ -1,12 +1,7 @@
 pipeline {
-  agent {
-    docker {
-      image 'python'
-    }
-    
-  }
+  agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh '''pip install django
 cd sms_survey
